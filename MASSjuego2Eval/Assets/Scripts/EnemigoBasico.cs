@@ -13,12 +13,12 @@ public class EnemigoBasico : MonoBehaviour
 
     private GameObject target;
     private Animator animator;
-    private Pistola pistola;
+    // private Pistola pistola;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        pistola = GetComponentInChildren<Pistola>();
+       // pistola = GetComponentInChildren<Pistola>();
     }
     // Start is called before the first frame update
     void Start()
@@ -31,7 +31,8 @@ public class EnemigoBasico : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
+
     }
 
     private void UpdateTarget()
@@ -84,7 +85,7 @@ public class EnemigoBasico : MonoBehaviour
         animator.SetBool("EnemigoIdle", true);
 
         //Disparos
-        animator.SetTrigger("EnemigoDisparo");
+        //animator.SetTrigger("EnemigoDisparo");
 
         /*if(pistola != null)
         {
@@ -102,21 +103,41 @@ public class EnemigoBasico : MonoBehaviour
     }
 
     //Agregamos funcion para los eventos de disparo y cuando llegue el evento que hemos creado en la anumacion disparamos arma
-    public void PuedeDisparar()
+    /*public void PuedeDisparar()
     {
         if(pistola != null)
        {
            pistola.Disparar();
        }
-    }
-
+    }*/
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("DAÑOS");
 
         if (collision.gameObject.tag == "Bala")
         {
-            //Debug.Log("DAÑOS");
+            Debug.Log("DAÑOS" + vidaEnemy);
+
+           vidaEnemy -= 1; //**
+            Destroy(collision.gameObject);//en cuanto colision no sigue avanzando la bala
+
+            if (vidaEnemy <= 0)
+            {
+                animator.SetBool("EnemigoMuerto", true);
+
+                //Destroy(gameObject);
+
+                DestruirEnemigo();
+                speed = 0;
+            }
         }
+
+
+    }
+
+    public void DestruirEnemigo()
+    {
+        Destroy(gameObject);
     }
 }

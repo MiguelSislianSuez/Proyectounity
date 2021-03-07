@@ -8,10 +8,12 @@ public class Disparos : MonoBehaviour
     //velocidad de la bala
     public float velocidad = 2;
     public Vector2 direction;
-    //tiempo en scena de bala
+   
+    //tiempo y daño en scena de bala
     public float tiempoBala = 3f;
     public int danho = 1;
 
+    //color
     public Color colorInicial;
     public Color colorFinal;
 
@@ -24,7 +26,7 @@ public class Disparos : MonoBehaviour
     {
         render = GetComponent<SpriteRenderer>();
         rigidbody = GetComponent<Rigidbody2D>();
-
+        
     }
 
     // Start is called before the first frame update
@@ -33,7 +35,7 @@ public class Disparos : MonoBehaviour
 
         tiempoInicial = Time.time;
 
-        //Fun destruye bala de la escena
+        //destruye bala de la escena
         Destroy(this.gameObject, tiempoBala);
     }
 
@@ -41,7 +43,7 @@ public class Disparos : MonoBehaviour
     void Update()
     {
         Vector2 movimiento = direction.normalized * velocidad * Time.deltaTime;
-        //transform.position = new Vector2(transform.position.x + movimiento.x, transform.position.y + movimiento.y);//indicamos la posicion que debe tener
+        transform.position = new Vector2(transform.position.x + movimiento.x, transform.position.y + movimiento.y);//indicamos la posicion que debe tener
         transform.Translate(movimiento);
 
        // float espacioDeTiempo = Time.time - tiempoInicial;
@@ -60,7 +62,7 @@ public class Disparos : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("colisión");
-        if (collision.CompareTag("Player")) { 
+        if (collision.CompareTag("Enemigo")) { //si la bala colisiona con colaider del enemigo se destruye 
             //collision.gameObject.GetComponent<VidaProta>().Danho;
             collision.SendMessageUpwards("Danho", danho);
             Destroy(gameObject);

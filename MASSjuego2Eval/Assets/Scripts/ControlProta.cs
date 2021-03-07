@@ -16,13 +16,17 @@ public class ControlProta : MonoBehaviour
     public GameObject vida1;
     public GameObject vida2;
     public GameObject vida3;
-    public GameObject puntoDisparo;
+    //public GameObject puntoDisparo;
 
     //referencias
     private Rigidbody2D rigidBody;//mover
     private Animator animator;//animar
     //private VidaProta vida;
+
     private int vida = 3;
+
+    //sonido
+
     //movimiento
     private Vector2 movimiento;//vector de movimiento x y
     private bool dirDerecha = true;
@@ -35,18 +39,15 @@ public class ControlProta : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
         //render = GetComponent<SpriteRenderer>();
         //colaider = GetComponent<Collider2D>();
 
     }
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         //movimiento
@@ -56,7 +57,7 @@ public class ControlProta : MonoBehaviour
         //giro
         if(horizontal < 0f && dirDerecha == true){
             Giro();
-           // puntoDisparo.transform.localScale.x = 1;
+            //puntoDisparo.transform.localScale.x = 1;
         }
         else if(horizontal > 0f && dirDerecha ==false)
         {
@@ -116,6 +117,12 @@ public class ControlProta : MonoBehaviour
             Invoke("ActivarColaider", 2f);
 
         }
+        Debug.Log("Entramos en caida");
+        if (collision.gameObject.tag == "Caida")
+        {
+            SceneManager.LoadScene("Scene 1");
+
+        }
     }
 
  private void ActivarColaider()
@@ -147,12 +154,10 @@ public class ControlProta : MonoBehaviour
                     vida3.SetActive(true);
                 }
                 //render.enabled = false;
+                Destroy(collision.gameObject);
                 vida++;
 
-                Destroy(collision.gameObject);
-
             }
-            //visual
 
         }
 

@@ -30,7 +30,7 @@ public class PlataformaTrampa1 : MonoBehaviour
 
     void Caida()
     {
-        Debug.Log("gay");
+        Debug.Log("Se cae");
         rigidbody.isKinematic = false;
         polygonC.isTrigger = true;
     }

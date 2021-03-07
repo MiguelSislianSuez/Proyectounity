@@ -1,13 +1,11 @@
 ﻿<Properties StartupConfiguration="{8C02E6E5-CBC3-CA28-35C9-0FEADB6C18FF}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemigoBasico.cs">
     <Files>
-      <File FileName="Assets/Scripts/Pistola.cs" Line="58" Column="20" />
-      <File FileName="Assets/Scripts/Disparos.cs" />
-      <File FileName="Assets/Scripts/EnemigoBasico.cs" Line="119" Column="15" />
-      <File FileName="Assets/Scripts/PolvoPasos.cs" />
-      <File FileName="Assets/Scripts/ControlProta.cs" Line="59" Column="14" />
-      <File FileName="Assets/Scripts/BasesMoviles.cs" />
-      <File FileName="Assets/Scripts/PlataformaTrampa1.cs" />
+      <File FileName="Assets/Scripts/ControlProta.cs" Line="126" Column="6" />
+      <File FileName="Assets/Scripts/EnemigoBasico.cs" Line="138" Column="1" NotebookId="1" />
+      <File FileName="Assets/Scripts/Disparos.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/Pistola.cs" NotebookId="1" />
+      <File FileName="Assets/Scripts/QuitGame.cs" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">

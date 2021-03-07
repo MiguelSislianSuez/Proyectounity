@@ -9,9 +9,16 @@ public class Pistola : MonoBehaviour
 
     public Transform puntoDisparo;
 
+    private AudioSource audioBala;
+
+    
+
     void Awake()
     {
-        //puntoDisparo = transform.Find("PuntoDisparo");//asignamos un punto de dispar hijo para devolver la posicion y lance la bala desde el punto asignado
+        puntoDisparo = transform.Find("PuntoDisparo");//asignamos un punto de dispar hijo para devolver la posicion y lance la bala desde el punto asignado
+        audioBala = GetComponent<AudioSource>();
+
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -34,7 +41,7 @@ public class Pistola : MonoBehaviour
 
     public void Disparar()
     {
-        if (disparoPrefab != null)
+       /* if (disparoPrefab != null)
         {
 
         Debug.Log("disparoPrefab", disparoPrefab);
@@ -48,7 +55,7 @@ public class Pistola : MonoBehaviour
         {
 
         Debug.Log("disparo", disparo);
-        }
+        }*/
 
         if (disparoPrefab != null && puntoDisparo != null && disparo != null)
         {
@@ -58,11 +65,14 @@ public class Pistola : MonoBehaviour
             if(disparo.transform.localScale.x < 0f)
             {
                 disparosComponent.direction = Vector2.left;//instanciamos nuevo vector para que marque la dirección del disparo
+                audioBala.Play();
                 
             }
             else
             {
                 disparosComponent.direction = Vector2.right;
+                audioBala.Play();
+
             }
 
         }
