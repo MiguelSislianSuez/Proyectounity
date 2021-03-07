@@ -8,6 +8,7 @@ TagManager:
   - Vidas
   - Bala
   - Caida
+  - Winner
   layers:
   - Default
   - TransparentFX

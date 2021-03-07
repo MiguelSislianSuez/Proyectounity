@@ -120,7 +120,7 @@ public class ControlProta : MonoBehaviour
         Debug.Log("Entramos en caida");
         if (collision.gameObject.tag == "Caida")
         {
-            SceneManager.LoadScene("Scene 1");
+            SceneManager.LoadScene("Scene 4");
 
         }
     }
@@ -159,7 +159,7 @@ public class ControlProta : MonoBehaviour
 
             }
 
-        }
+       }
 
     }
 }
